@@ -1,0 +1,24 @@
+Group:
+قمر المان كواره - هيام الأسعد - رغد الخطيب 
+_______________________________________________
+execution:
+1.change the data path  to your dataset path in MAIN.PY 
+2-apply (uvicorn MAIN:app --reload) in your cmd
+3-apply /offline/antique/{process_type} api  with process_type =1:#to proces docu
+  this with call 
+     textproc_and_wight_document_antique() that will call (1text_processing  then 2 remove_dublicated_words
+     then 3 compute_Weight)
+4- apply /offline/antique/{process_type} api  with  process_type=2:#Query proces
+  this will call 
+    <1> all_queries_wight() that will call (1text_processing then 2 get_Weight_For_Query)
+    <2> all_queries_similarety() that will call (similarity_Computation() )
+    <3> all_queries_prediction() that will call (  prediction ())
+5-change the qrel  path  to your dataset qrel path in MAIN.PY 
+6-apply  /eva/antique/{evaluation_type} api 
+    evaluation_type =1: call evaluation_MAP()
+    evaluation_type==2: call .evaluation_Mrr()
+    evaluation_type==3: call .evaluation_recall()
+    evaluation_type==4: call .evaluation_percision()
+
+7- api /search can recieve two param (query: str, dataset: int)
+   this retrive document that match the query 
